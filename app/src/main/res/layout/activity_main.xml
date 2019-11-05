@@ -53,4 +53,15 @@
         android:text="@string/List"
         android:onClick="list"/>
 
+    <Button
+        android:id="@+id/tombolLaporan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/List"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="122dp"
+        android:text="Button"
+        android:onClick="Laporan"/>
+
 </RelativeLayout>

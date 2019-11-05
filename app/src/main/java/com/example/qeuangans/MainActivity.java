@@ -64,6 +64,11 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void Laporan(View view) {
+        Intent intent = new Intent(MainActivity.this, laporan.class);
+        startActivity(intent);
+    }
+
     public void dispnotif(){
         NotificationCompat.Builder mbuilder = new NotificationCompat.Builder(this, CHANNEL_ID)
                 .setSmallIcon(R.drawable.ic_android_black_24dp)
@@ -74,4 +79,6 @@ public class MainActivity extends AppCompatActivity {
         NotificationManagerCompat Mnotification = NotificationManagerCompat.from(this);
         Mnotification.notify(1, mbuilder.build());
     }
+
+
 }
