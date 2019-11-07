@@ -61,7 +61,7 @@
         android:layout_marginTop="12dp"
         android:layout_marginBottom="197dp"
         android:onClick="Laporan"
-        android:text="Laporan" />
+        android:text="Laporan" /> <!-- // Solusi ERROR 14. Issues #16  (android:id="@+id/tombolLaporan")-->
     <!-- Solusi ERROR 13. Issues #15 // -->
 
 </RelativeLayout>
