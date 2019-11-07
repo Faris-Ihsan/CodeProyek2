@@ -17,7 +17,8 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:text="@string/Tabungan_anda" />
+        android:text="@string/Tabungan_anda" /> <!-- Hardcoded String: Issues #1 -->
+    <!--Penyelesaian Tag Start Is Not Closed: Issues #2 -->
 
     <TextView
         android:id="@+id/textsaldo"
