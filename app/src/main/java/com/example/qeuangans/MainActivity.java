@@ -12,18 +12,15 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.logging.ConsoleHandler;
-
 public class MainActivity extends AppCompatActivity {
     DatabaseHelper db;
     TextView textsaldo;
-    Button list;
 
     //Notification
     public static final String CHANNEL_ID = "01";
     public static final String Name = "Keuangans";
     public static final String Desc = "Desc";
-
+    //private  TimerClass timerClass; // tai mer
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,12 +29,13 @@ public class MainActivity extends AppCompatActivity {
         db = new DatabaseHelper(this);
 
         //CASTING
-        textsaldo = findViewById(R.id.textsaldo); // Cannot Resolve Symbol: Issues #3
+        textsaldo = findViewById(R.id.textsaldo);
         list = findViewById(R.id.List);
 
 
         //PEMANGGILAN METHOD
-        jmlSaldo(); //Cannot Resolve Method: Issues #4
+        jmlSaldo();
+        //dispnotif();
     }
 
 
@@ -64,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void Laporan(View view) {
+    public void Laporan(View view) {// Solusi ERROR 12. Issues #14 //
         Intent intent = new Intent(MainActivity.this, laporan.class);
         startActivity(intent);
     }

@@ -17,8 +17,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:text="@string/Tabungan_anda" /> <!-- Hardcoded String: Issues #1 -->
-    <!--Penyelesaian Tag Start Is Not Closed: Issues #2 -->
+        android:text="@string/Tabungan_anda" />
 
     <TextView
         android:id="@+id/textsaldo"
@@ -35,7 +34,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="421dp"
+        android:layout_marginTop="347dp"
         android:gravity="bottom|center"
         android:onClick="Pindah"
         android:text="@string/input_data" />
@@ -47,21 +46,21 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_marginTop="473dp"
-        android:layout_marginEnd="-2dp"
-        android:layout_marginRight="-2dp"
-        android:text="@string/List"
-        android:onClick="list"/>
+        android:layout_marginTop="399dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginRight="4dp"
+        android:onClick="list"
+        android:text="@string/List" />
 
     <Button
         android:id="@+id/tombolLaporan"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/List"
         android:layout_alignParentBottom="true"
         android:layout_marginTop="12dp"
-        android:layout_marginBottom="122dp"
-        android:text="Button"
-        android:onClick="Laporan"/>
+        android:layout_marginBottom="197dp"
+        android:onClick="Laporan"
+        android:text="Laporan" /> 
 
 </RelativeLayout>
