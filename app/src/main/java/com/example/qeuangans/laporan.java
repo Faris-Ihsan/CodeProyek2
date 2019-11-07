@@ -14,8 +14,8 @@ public class laporan extends AppCompatActivity {
 
     DatabaseHelper db;
     ListView listLaporanK;
-    ArrayList<String> LK;
-    ArrayAdapter adapter;
+    ArrayList<String> LK;  //Solusi ERROR 20. Issues #22 //
+    ArrayAdapter adapter; //Solusi ERROR 20. Issues #22 //
 
 
     @Override
