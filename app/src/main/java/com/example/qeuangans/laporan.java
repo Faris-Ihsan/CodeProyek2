@@ -14,6 +14,9 @@ public class laporan extends AppCompatActivity {
 
     DatabaseHelper db;
     ListView listLaporanK;
+    ArrayList<String> LK;
+    ArrayAdapter adapter;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,8 +40,10 @@ public class laporan extends AppCompatActivity {
             while (cursor.moveToNext()) {
                 LK.add("\n" + cursor.getString(0) + "\n" + "Tanggal : " + cursor.getString(5) + "\n" + "\n" + "Pemasukan : " + cursor.getString(1)
                         + "\n" + "Jumlah : Rp " + cursor.getString(2) + ",00" + "\n" + "\n" + "Pengeluaran : " + cursor.getString(3)
-                        + "\n" + "Jumlah : Rp" + cursor.getString(4) + ",00" + "\n");
+                        + "\n" + "Jumlah : Rp" + cursor.getString(4) + ",00" + "\n");   // Solusi ERROR 16. Issues #18
             }
         }
+        adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, LK); // Solusi ERROR 16. Issues #18
+        listLaporanK.setAdapter(adapter); // Solusi ERROR 16. Issues #18
     }
 }
