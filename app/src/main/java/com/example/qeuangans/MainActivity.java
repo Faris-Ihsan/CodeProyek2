@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        db = new DatabaseHelper(this);
+        db = new DatabaseHelper(this); //Issues #19
 
         //CASTING
         textsaldo = findViewById(R.id.textsaldo);
