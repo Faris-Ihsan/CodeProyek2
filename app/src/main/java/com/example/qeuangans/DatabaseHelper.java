@@ -1,15 +1,10 @@
 package com.example.qeuangans;
 
-import android.app.Notification;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-
-import androidx.core.app.NotificationCompat;
-
-import java.sql.SQLInput;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String DBNAME = "Qeuangan.db";
@@ -29,7 +24,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("create table "+ TBLNAME +"(ID INTEGER PRIMARY KEY AUTOINCREMENT, JENIS_PEMASUKAN STRING," +
-                "PEMASUKAN INTEGER, JENIS_PENGELUARAN STRING, PENGELUARAN INTEGER, TANGGAL STRING)");
+                "PEMASUKAN NUMBER, JENIS_PENGELUARAN STRING, PENGELUARAN NUMBER, TANGGAL STRING)");
     }
 
     @Override
@@ -76,5 +71,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public void hapusData(long position) {
         SQLiteDatabase db = this.getWritableDatabase();
         db.delete(TBLNAME, COL1+ "=" +position,null);
+    }
+
+    public Cursor datalaporankeluar(){ // Cannot return value from void method.  // Solusi ERROR 18. Issues #20 //
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor saldo;
+        saldo = db.rawQuery("SELECT SUM(" +COL3+")-SUM(" +COL5+") FROM "+TBLNAME, null);
+        return saldo;
     }
 }
