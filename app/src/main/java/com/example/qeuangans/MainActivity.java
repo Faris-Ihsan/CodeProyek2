@@ -15,6 +15,7 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
     DatabaseHelper db;
     TextView textsaldo;
+    Button list, tombolLaporan; // Solusi ERROR 13. Issues #14 //
 
     //Notification
     public static final String CHANNEL_ID = "01";
@@ -31,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
         //CASTING
         textsaldo = findViewById(R.id.textsaldo);
         list = findViewById(R.id.List);
+        tombolLaporan = findViewById(R.id.tombolLaporan); // Solusi ERROR 13. Issues #15
 
 
         //PEMANGGILAN METHOD
