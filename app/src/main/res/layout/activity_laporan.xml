@@ -32,3 +32,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/TombolLaporankeluar" />
     <!-- // Solusi ERROR 14. Issues #16 (android:id="@+id/listLaporanK")  -->
+    <!-- // Solusi ERROR 15. Issues #17 (app:layout_constraintBottom_toBottomOf="parent") // -->
+</androidx.constraintlayout.widget.ConstraintLayout>
