@@ -28,7 +28,8 @@
         android:layout_marginTop="58dp"
         android:hint="@string/Rp00"
         android:textColor="#000000"
-        android:textSize="20sp" />
+        android:textSize="20sp"
+        android:onClick="Notiftest"/>
 
     <Button
         android:id="@+id/tombolinputkeluar"
@@ -62,7 +63,6 @@
         android:layout_marginTop="12dp"
         android:layout_marginBottom="197dp"
         android:onClick="Laporan"
-        android:text="Laporan" /> <!-- // Solusi ERROR 14. Issues #16  (android:id="@+id/tombolLaporan")-->
-    <!-- Solusi ERROR 13. Issues #15 // -->
+        android:text="Laporan" />
 
 </RelativeLayout>

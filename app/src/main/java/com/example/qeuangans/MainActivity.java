@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
 
+import android.app.NotificationManager;
+import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
@@ -13,6 +15,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
+    public static final int NOTIFICATION_ID = 1;
     DatabaseHelper db;
     TextView textsaldo;
     Button list, tombolLaporan; // Solusi ERROR 13. Issues #14 //
@@ -34,10 +37,8 @@ public class MainActivity extends AppCompatActivity {
         list = findViewById(R.id.List);
         tombolLaporan = findViewById(R.id.tombolLaporan); // Solusi ERROR 13. Issues #15
 
-
         //PEMANGGILAN METHOD
         jmlSaldo();
-        //dispnotif();
     }
 
 
@@ -69,16 +70,15 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void dispnotif(){
-        NotificationCompat.Builder mbuilder = new NotificationCompat.Builder(this, CHANNEL_ID)
-                .setSmallIcon(R.drawable.ic_android_black_24dp)
-                .setContentTitle("Hohohohoh")
-                .setContentText("jdssadfyhijlkojjlljk")
-                .setPriority(NotificationCompat.PRIORITY_DEFAULT);
 
-        NotificationManagerCompat Mnotification = NotificationManagerCompat.from(this);
-        Mnotification.notify(1, mbuilder.build());
+    public void Notiftest(View view) {
+    NotificationCompat.Builder builder = new NotificationCompat.Builder(this)
+            .setSmallIcon(R.mipmap.ic_launcher)
+            .setContentTitle("Issues Notif")
+            .setAutoCancel(true)
+            .setContentText("Berhasil Pak");
+        NotificationManager notificationManager = (NotificationManager)getSystemService(Context.NOTIFICATION_SERVICE);
+        notificationManager.notify(NOTIFICATION_ID,builder.build());
+
     }
-
-
 }
