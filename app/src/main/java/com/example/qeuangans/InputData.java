@@ -3,6 +3,7 @@ package com.example.qeuangans;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -87,5 +88,10 @@ public class InputData extends AppCompatActivity {
                     }
                 }
         );
+    }
+
+    public void pengeluaran(View view) {
+        Intent intent = new Intent(InputData.this, InputData2.class);
+        startActivity(intent);
     }
 }
