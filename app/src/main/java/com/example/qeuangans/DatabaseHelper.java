@@ -34,8 +34,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     //UNTUK INPUT DATA
-    public boolean insertData(String jenis_pemasukan, String pemasukan, String jenis_pengeluaran,
-                              String pengeluaran, String tanggal){
+    public boolean insertData(String jenis_pemasukan, String pemasukan, String tanggal){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(COL2, jenis_pemasukan);

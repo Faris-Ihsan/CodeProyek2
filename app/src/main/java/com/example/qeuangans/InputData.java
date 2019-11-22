@@ -76,8 +76,7 @@ public class InputData extends AppCompatActivity {
                     @Override
                     public void onClick(View view) {
                             boolean isInseted = myDB.insertData(jenispemasukan.getText().toString(),
-                                    jmlpemasukan.getText().toString(), jenispengeluaran.getText().toString(),
-                                    jmlpengeluaran.getText().toString(), tglpemasukan.getText().toString());
+                                    jmlpemasukan.getText().toString(), tglpemasukan.getText().toString());
                             if (isInseted = true)
                                 Toast.makeText(InputData.this, "INPUT BERHASIL", Toast.LENGTH_LONG).show();
                             else
