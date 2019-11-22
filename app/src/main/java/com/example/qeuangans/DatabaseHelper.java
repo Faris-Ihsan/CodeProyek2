@@ -40,8 +40,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         ContentValues contentValues = new ContentValues();
         contentValues.put(COL2, jenis_pemasukan);
         contentValues.put(COL3, pemasukan);
-        contentValues.put(COL4, jenis_pengeluaran);
-        contentValues.put(COL5, pengeluaran);
         contentValues.put(COL6, tanggal);
 
         long result = db.insert(TBLNAME, null, contentValues);

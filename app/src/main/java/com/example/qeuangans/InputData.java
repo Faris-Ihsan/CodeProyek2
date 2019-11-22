@@ -18,7 +18,7 @@ import java.util.Calendar;
 
 public class InputData extends AppCompatActivity {
     DatabaseHelper myDB;
-    EditText jenispemasukan, jmlpemasukan, jenispengeluaran, jmlpengeluaran;
+    EditText jenispemasukan, jmlpemasukan;
     TextView tglpemasukan;
     Button inputmasuk;
     private DatePickerDialog.OnDateSetListener  setListener;
@@ -34,8 +34,6 @@ public class InputData extends AppCompatActivity {
         //CASTING
         jenispemasukan = findViewById(R.id.jenispemasukan);
         jmlpemasukan = findViewById(R.id.jmlpemasukan);
-        jenispengeluaran = findViewById(R.id.jenispengeluaran);
-        jmlpengeluaran = findViewById(R.id.jmlpengeluaran);
         tglpemasukan = findViewById(R.id.tglpemasukan);
         inputmasuk = findViewById(R.id.inputmasuk);
 
