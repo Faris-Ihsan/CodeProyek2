@@ -8,7 +8,7 @@
     tools:context=".InputData2">
 
     <Button
-        android:id="@+id/inputmasuk2"
+        android:id="@+id/inputkeluar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -21,10 +21,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tglpemasukan2" />
+        app:layout_constraintTop_toBottomOf="@+id/tglpengeluaran" />
 
     <TextView
-        android:id="@+id/tglpemasukan2"
+        android:id="@+id/tglpengeluaran"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
