@@ -14,6 +14,7 @@ import android.widget.TextView;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.text.DateFormat;
 import java.util.Calendar;
 
 public class InputData extends AppCompatActivity {
@@ -29,16 +30,19 @@ public class InputData extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_input_data);
 
+        Calendar calendar = Calendar.getInstance();
+        String currentDate = DateFormat.getDateInstance(DateFormat.FULL).format(calendar.getTime());
+
         myDB = new DatabaseHelper(this);
 
         //CASTING
         jenispemasukan = findViewById(R.id.jenispemasukan);
         jmlpemasukan = findViewById(R.id.jmlpemasukan);
         tglpemasukan = findViewById(R.id.tglpemasukan);
+        tglpemasukan.setText(currentDate);
         inputmasuk = findViewById(R.id.inputmasuk);
 
         //KALENDER
-        Calendar calendar = Calendar.getInstance();
         final int year = calendar.get(Calendar.YEAR);
         final int month = calendar.get(Calendar.MONTH);
         final int day = calendar.get(Calendar.DAY_OF_MONTH);
