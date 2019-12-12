@@ -24,7 +24,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("create table "+ TBLNAME +"(ID INTEGER PRIMARY KEY AUTOINCREMENT, JENIS_PEMASUKAN STRING," +
-                "PEMASUKAN NUMBER, JENIS_PENGELUARAN STRING, PENGELUARAN NUMBER, TANGGAL STRING)");
+                "PEMASUKAN NUMBER, JENIS_PENGELUARAN STRING, PENGELUARAN NUMBER, " +
+                "TANGGAL_PEMASUKAN STRING, TANGGAL_PENGELUARAN STRING)"); 
     }
 
     @Override
