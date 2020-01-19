@@ -76,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
     public void Notiftest(View view) {
         long[] PolaGetar = {100, 100};
     NotificationCompat.Builder builder = new NotificationCompat.Builder(this)
-            .setSmallIcon(R.drawable.ic_cash
+            .setSmallIcon(R.drawable.ic_cash)
             .setContentTitle("Issues Notif")
             .setAutoCancel(true)
             .setContentText("Berhasil Pak")
