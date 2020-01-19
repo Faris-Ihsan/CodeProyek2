@@ -47,6 +47,27 @@ public class InputData extends AppCompatActivity {
         final int month = calendar.get(Calendar.MONTH);
         final int day = calendar.get(Calendar.DAY_OF_MONTH);
 
+        tglpemasukan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                DatePickerDialog datePickerDialog = new DatePickerDialog(
+                        InputData.this,android.R.style.Theme_Holo_Light_Dialog_MinWidth,
+                        setListener,year,month,day);
+                datePickerDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                datePickerDialog.show();
+            }
+        });
+
+        setListener = new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker datePicker, int year, int month, int dayOfMonth) {
+                month = month+1;
+                String date = day+"/"+month+"/"+year;
+                tglpemasukan.setText(date);
+            }
+        };
+        //AKHIR KALENDER
+
 
         //PEMANGGILAN METHOD
         AddData();
