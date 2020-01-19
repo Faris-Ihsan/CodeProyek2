@@ -82,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
             .setContentText("Berhasil Pak")
             .setVibrate(PolaGetar);
         NotificationManager notificationManager = (NotificationManager)getSystemService(Context.NOTIFICATION_SERVICE);
-        notificationManager.notify(NOTIFICATION_ID,builder.build();
+        notificationManager.notify(NOTIFICATION_ID,builder.build());
 
     }
 }
