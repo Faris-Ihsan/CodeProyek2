@@ -76,12 +76,11 @@ public class MainActivity extends AppCompatActivity {
     public void Notiftest(View view) {
         long[] PolaGetar = {100, 100};
     NotificationCompat.Builder builder = new NotificationCompat.Builder(this)
-            .setSmallIcon(R.mipmap.ic_launcher)
+            .setSmallIcon(R.drawable.ic_cash)
             .setContentTitle("Issues Notif")
             .setAutoCancel(true)
             .setContentText("Berhasil Pak")
             .setVibrate(PolaGetar);
-            .setSound(RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION));
         NotificationManager notificationManager = (NotificationManager)getSystemService(Context.NOTIFICATION_SERVICE);
         notificationManager.notify(NOTIFICATION_ID,builder.build());
 
