@@ -8,6 +8,8 @@ import android.app.NotificationManager;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
+import android.media.RingtoneManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -78,7 +80,8 @@ public class MainActivity extends AppCompatActivity {
             .setContentTitle("Issues Notif")
             .setAutoCancel(true)
             .setContentText("Berhasil Pak")
-            .setVibrate(PolaGetar);
+            .setVibrate(PolaGetar)
+            .setSound(RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION));
         NotificationManager notificationManager = (NotificationManager)getSystemService(Context.NOTIFICATION_SERVICE);
         notificationManager.notify(NOTIFICATION_ID,builder.build());
 
