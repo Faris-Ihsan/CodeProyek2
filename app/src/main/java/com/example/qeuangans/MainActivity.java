@@ -80,7 +80,7 @@ public class MainActivity extends AppCompatActivity {
             .setContentTitle("Issues Notif")
             .setAutoCancel(true)
             .setContentText("Berhasil Pak")
-            .setVibrate(PolaGetar)
+            .setVibrate(PolaGetar);
             .setSound(RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION));
         NotificationManager notificationManager = (NotificationManager)getSystemService(Context.NOTIFICATION_SERVICE);
         notificationManager.notify(NOTIFICATION_ID,builder.build());
