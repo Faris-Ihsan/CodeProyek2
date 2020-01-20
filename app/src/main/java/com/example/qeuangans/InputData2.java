@@ -15,6 +15,7 @@ import android.widget.TextView;
 
 import java.text.DateFormat;
 import java.util.Calendar;
+import java.util.Date;
 
 
 public class InputData2 extends AppCompatActivity {
@@ -29,7 +30,7 @@ public class InputData2 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_input_data2);
 
-        Calendar calendar = Calendar.getInstance();
+        final Calendar calendar = Calendar.getInstance();
         String currentDate = DateFormat.getDateInstance(DateFormat.FULL).format(calendar.getTime());
 
         jenispengeluaran = findViewById(R.id.jenispengeluaran);
@@ -54,8 +55,10 @@ public class InputData2 extends AppCompatActivity {
         setListener = new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker datePicker, int year, int month, int dayOfMont) {
-                month = month+1;
-                String date = day+"/"+month+"/"+year;
+                calendar.set(Calendar.YEAR, year);
+                calendar.set(Calendar.MONTH, month);
+                calendar.set(Calendar.DAY_OF_MONTH, dayOfMont);
+                String date = DateFormat.getDateInstance(DateFormat.FULL).format(calendar.getTime());
                 tglpengeluaran.setText(date);
             }
         };
