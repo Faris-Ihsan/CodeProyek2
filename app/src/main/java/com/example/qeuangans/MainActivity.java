@@ -8,6 +8,7 @@ import android.app.NotificationManager;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.media.RingtoneManager;
 import android.net.Uri;
@@ -44,8 +45,28 @@ public class MainActivity extends AppCompatActivity {
 
         //PEMANGGILAN METHOD
         jmlSaldo();
+        notif();
 
+    }
 
+    private void notif() {
+        if (total<200000){
+            long[] PolaGetar = {100, 100};
+            NotificationCompat.Builder builder = new NotificationCompat.Builder(this)
+                    .setSmallIcon(R.drawable.ic_notifsatu)
+                    .setLargeIcon(BitmapFactory.decodeResource(this.getResources(),
+                            R.drawable.ic_notifsatu))
+                    .setColor(Color.BLUE)
+                    .setContentTitle("Issues Notif")
+                    .setAutoCancel(true)
+                    .setContentText("Berhasil Pak")
+                    .setVibrate(PolaGetar)
+                    .setSound(RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION));
+            NotificationManager notificationManager = (NotificationManager)getSystemService(Context.NOTIFICATION_SERVICE);
+            notificationManager.notify(NOTIFICATION_ID,builder.build());
+        }else{
+
+        }
     }
 
     private void jmlSaldo() {
