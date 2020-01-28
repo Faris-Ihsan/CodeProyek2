@@ -9,8 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".InputData2"></activity>
-        <activity android:name=".laporan" />
+        <activity android:name=".List2"></activity>
+        <activity android:name=".InputData2" />
         <activity android:name=".List" />
         <activity android:name=".InputData" />
         <activity android:name=".MainActivity">

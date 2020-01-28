@@ -1,6 +1,7 @@
 package com.example.qeuangans;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.database.Cursor;
 import android.graphics.Color;
@@ -16,35 +17,36 @@ import com.baoyz.swipemenulistview.SwipeMenuListView;
 
 import java.util.ArrayList;
 
-public class List extends AppCompatActivity {
-    private static final String TAG = "List";
+public class List2 extends AppCompatActivity {
+    private static final String TAG ="List";
 
     DatabaseHelper db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_list);
+        setContentView(R.layout.activity_list2);
 
         db = new DatabaseHelper(this);
 
-        tampilkanData();
+        tampilkanDataKeluar();
     }
 
-    public void tampilkanData() {
-        Cursor cursor = db.tampilkanData();
-        final SwipeMenuListView listView = findViewById(R.id.listView);
-        final ArrayList<String> listitem = new ArrayList<>();
+    private void tampilkanDataKeluar() {
+        Cursor cursor = db.tampilkanDataKeluar();
+        final SwipeMenuListView listView2 = findViewById(R.id.listView2);
+        final ArrayList<String> listitem2 = new ArrayList<>();
 
-        if (cursor.getCount() == 0) {
-            Toast.makeText(this, "TIDAK ADA DATA", Toast.LENGTH_SHORT).show();
-        } else {
-            while (cursor.moveToNext()) {
-                listitem.add("\n" + "Tanggal : " + cursor.getString(3) + "\n" + "\n" + "Jenis Pemasukan : " + cursor.getString(1)
+        if (cursor.getCount() == 0){
+            Toast.makeText(this, "TIDAK ADA DATA", Toast.LENGTH_LONG).show();
+        }else {
+            while (cursor.moveToNext()){
+                listitem2.add("\n" + "Tanggal : " + cursor.getString(3) + "\n" + "\n" + "Jenis Pemasukan : " + cursor.getString(1)
                         + "\n" + "Jumlah : Rp " + cursor.getString(2) + ",00" + "\n");
+
             }
-            final ArrayAdapter adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, listitem);
-            listView.setAdapter(adapter);
+            final ArrayAdapter adapter2 = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1,listitem2);
+            listView2.setAdapter(adapter2);
 
             SwipeMenuCreator creator = new SwipeMenuCreator() {
 
@@ -68,21 +70,22 @@ public class List extends AppCompatActivity {
                     menu.addMenuItem(openItem);
                 }
             };
-            listView.setMenuCreator(creator);
+            listView2.setMenuCreator(creator);
 
 
 
-            listView.setOnMenuItemClickListener(new SwipeMenuListView.OnMenuItemClickListener() {
+            listView2.setOnMenuItemClickListener(new SwipeMenuListView.OnMenuItemClickListener() {
                 @Override
                 public boolean onMenuItemClick(final int position, SwipeMenu menu, int index) {
                     switch (index) { //ini
                         case 0:
-                            Toast.makeText(List.this, "INPUT BERHASIL", Toast.LENGTH_LONG).show();
-                        }
+                            Toast.makeText(List2.this, "INPUT BERHASIL", Toast.LENGTH_LONG).show();
+                    }
                     // false : close the menu; true : not close the menu
                     return false;
                 }
             });
+
         }
     }
 }

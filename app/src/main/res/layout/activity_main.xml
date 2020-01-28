@@ -55,14 +55,20 @@
         android:text="@string/List" />
 
     <Button
-        android:id="@+id/tombolLaporan"
+        android:id="@+id/tahihi"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/List"
-        android:layout_alignParentBottom="true"
-        android:layout_marginTop="12dp"
-        android:layout_marginBottom="197dp"
-        android:onClick="Laporan"
-        android:text="Laporan" />
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="448dp"
+        android:layout_marginEnd="0dp"
+        android:layout_marginRight="0dp"
+        android:text="TAHI"
+        android:onClick="pindahin"/>
 
 </RelativeLayout>

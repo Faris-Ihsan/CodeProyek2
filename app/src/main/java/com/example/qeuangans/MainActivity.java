@@ -21,7 +21,9 @@ public class MainActivity extends AppCompatActivity {
     public static final int NOTIFICATION_ID = 1;
     DatabaseHelper db;
     TextView textsaldo;
-    Button list, tombolLaporan; // Solusi ERROR 13. Issues #14 //
+    Button list, tahi; // Solusi ERROR 13. Issues #14 //
+
+    public int total;
 
     //Notification
     public static final String CHANNEL_ID = "01";
@@ -38,15 +40,33 @@ public class MainActivity extends AppCompatActivity {
         //CASTING
         textsaldo = findViewById(R.id.textsaldo);
         list = findViewById(R.id.List);
-        tombolLaporan = findViewById(R.id.tombolLaporan); // Solusi ERROR 13. Issues #15
+        tahi = findViewById(R.id.tahihi); // Solusi ERROR 13. Issues #15
 
         //PEMANGGILAN METHOD
         jmlSaldo();
+
+
+    }
+
+    private void jmlSaldo() {
+        Cursor cursor = db.totalPemasukan();
+        Cursor cursor2 = db.totalPengeluaran();
+
+        cursor.moveToFirst();
+        int pemasukan = cursor.getInt(0);
+
+        cursor2.moveToFirst();
+        int pengeluaran = cursor2.getInt(0);
+
+        total = pemasukan-pengeluaran;
+
+        textsaldo.setText("Rp "+total);
     }
 
 
     //METHOD SALDO
-    private void jmlSaldo() {
+    /**
+    private void jmlSalto() {
         Cursor cursor = db.saldo();
         while (cursor.moveToNext()) {
             textsaldo.append("Rp " + cursor.getString(0) + ",00");
@@ -55,7 +75,9 @@ public class MainActivity extends AppCompatActivity {
         String check = textsaldo.getText().toString();
         if (check.contentEquals("Rp 100000,00"))
             Toast.makeText(MainActivity.this, "Saldo Tipis", Toast.LENGTH_LONG).show();
-    }
+    }**/
+
+
 
     //PINDAH TOMBOL INPUT DATA
     public void Pindah(View view) {
@@ -67,12 +89,6 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(MainActivity.this, List.class);
         startActivity(intent);
     }
-
-    public void Laporan(View view) {// Solusi ERROR 12. Issues #14 //
-        Intent intent = new Intent(MainActivity.this, laporan.class);
-        startActivity(intent);
-    }
-
 
     public void Notiftest(View view) {
         long[] PolaGetar = {100, 100};
@@ -86,5 +102,10 @@ public class MainActivity extends AppCompatActivity {
         NotificationManager notificationManager = (NotificationManager)getSystemService(Context.NOTIFICATION_SERVICE);
         notificationManager.notify(NOTIFICATION_ID,builder.build());
 
+    }
+
+    public void pindahin(View view) {
+        Intent intent = new Intent(MainActivity.this, List2.class);
+        startActivity(intent);
     }
 }

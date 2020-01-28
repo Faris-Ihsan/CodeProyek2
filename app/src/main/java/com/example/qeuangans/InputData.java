@@ -72,11 +72,11 @@ public class InputData extends AppCompatActivity {
 
 
         //PEMANGGILAN METHOD
-        AddData();
+        tambahData();
     }
 
     //SCRIPT TAMBAH DATA DATABASE
-    private void AddData() {
+    private void tambahData() {
         inputmasuk.setOnClickListener(
                 new View.OnClickListener() {
                     @Override

@@ -8,13 +8,16 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String DBNAME = "Qeuangan.db";
-    public static final String TBLNAME = "tabungan";
-    public static final String COL1 = "ID";
+    public static final String TBLNAME = "pemasukan";
+    public static final String TBLNAME2 = "pengeluaran";
+    public static final String COL1 = "ID_PEMASUKAN";
+    public static final String COL8 = "ID_PENGELUARAN";
     public static final String COL2 = "JENIS_PEMASUKAN";
     public static final String COL3 = "PEMASUKAN";
     public static final String COL4 = "JENIS_PENGELUARAN";
     public static final String COL5 = "PENGELUARAN";
     public static final String COL6 = "TANGGAL_PEMASUKAN";
+    public static final String COL7 = "TANGGAL_PENGELUARAN";
 
 
     public DatabaseHelper(Context context) {
@@ -23,14 +26,18 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("create table "+ TBLNAME +"(ID INTEGER PRIMARY KEY AUTOINCREMENT, JENIS_PEMASUKAN STRING," +
-                "PEMASUKAN NUMBER, JENIS_PENGELUARAN STRING, PENGELUARAN NUMBER, " +
-                "TANGGAL_PEMASUKAN STRING, TANGGAL_PENGELUARAN STRING)"); 
+        db.execSQL("create table "+ TBLNAME +"(ID_PEMASUKAN INTEGER PRIMARY KEY AUTOINCREMENT, JENIS_PEMASUKAN STRING," +
+                "PEMASUKAN NUMBER, TANGGAL_PEMASUKAN STRING)");
+
+        db.execSQL("create table "+ TBLNAME2 +"(ID_PENGELUARAN INTEGER PRIMARY KEY AUTOINCREMENT, JENIS_PENGELUARAN STRING," +
+                "PENGELUARAN NUMBER, TANGGAL_PENGELUARAN STRING)");
     }
+
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int i, int i1) {
         db.execSQL("DROP TABLE IF EXISTS "+TBLNAME);
+        db.execSQL("DROP TABLE IF EXISTS "+TBLNAME2);
         onCreate(db);
     }
 
@@ -50,31 +57,60 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             return true;
     }
 
-    //SCRIPT MENAMPILKAN DATA
+    //SCRIPT MENAMPILKAN DATA PEMASUKAN
     public Cursor tampilkanData() {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor res;
-        res = db.rawQuery("SELECT *FROM "+TBLNAME,null);
+        res = db.rawQuery("SELECT * FROM "+TBLNAME,null);
         return res;
     }
 
+    public Cursor tampilkanDataKeluar() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor res;
+        res = db.rawQuery("SELECT * FROM "+TBLNAME2,null);
+        return res;
+    }
+
+    public boolean insertData2(String pengeluaran, String jenis_pengeluaran, String tanggal_pengeluaran) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(COL5, pengeluaran);
+        values.put(COL4, jenis_pengeluaran);
+        values.put(COL7, tanggal_pengeluaran);
+
+        long result = db.insert(TBLNAME2, null, values);
+
+        if (result == -1)
+            return false;
+        else
+            return true;
+    }
+
+    public Cursor totalPemasukan(){
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor saldo;
+        saldo = db.rawQuery("SELECT SUM("+COL3+") as Total1 FROM "+TBLNAME,null);
+        saldo.moveToFirst();
+        saldo.getInt(saldo.getColumnIndex("Total1"));
+        return saldo;
+    }
+
+    public Cursor totalPengeluaran(){
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor saldo;
+        saldo = db.rawQuery("SELECT SUM("+COL5+") as Total2 FROM "+TBLNAME2,null);
+        saldo.moveToFirst();
+        saldo.getInt(saldo.getColumnIndex("Total2"));
+        return saldo;
+    }
+
+
+    /**
     public Cursor saldo(){
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor saldo;
         saldo = db.rawQuery("SELECT SUM(" +COL3+")-SUM(" +COL5+") FROM "+TBLNAME, null);
         return saldo;
-    }
-
-
-    public void hapusData(long position) {
-        SQLiteDatabase db = this.getWritableDatabase();
-        db.delete(TBLNAME, COL1+ "=" +position,null);
-    }
-
-    public Cursor datalaporankeluar(){ // Cannot return value from void method.  // Solusi ERROR 18. Issues #20 //
-        SQLiteDatabase db = this.getReadableDatabase();
-        Cursor saldo;
-        saldo = db.rawQuery("SELECT SUM(" +COL3+")-SUM(" +COL5+") FROM "+TBLNAME, null);
-        return saldo;
-    }
+    }***/
 }
