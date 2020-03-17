@@ -52,7 +52,7 @@
         android:layout_marginEnd="4dp"
         android:layout_marginRight="4dp"
         android:onClick="list"
-        android:text="@string/List" />
+        android:text="List Pemasukan" />
 
     <Button
         android:id="@+id/tahihi"
@@ -68,7 +68,7 @@
         android:layout_marginTop="448dp"
         android:layout_marginEnd="0dp"
         android:layout_marginRight="0dp"
-        android:text="TAHI"
+        android:text="List Pengeluaran"
         android:onClick="pindahin"/>
 
 </RelativeLayout>
