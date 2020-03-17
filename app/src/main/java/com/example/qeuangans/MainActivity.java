@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
         //CASTING
         textsaldo = findViewById(R.id.textsaldo);
         list = findViewById(R.id.List);
-        tahi = findViewById(R.id.tahihi); // Solusi ERROR 13. Issues #15
+        tahi = findViewById(R.id.test); // Solusi ERROR 13. Issues #15
 
         //PEMANGGILAN METHOD
         jmlSaldo();
